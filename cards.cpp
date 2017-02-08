@@ -1,6 +1,8 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
+
 
 /*
 You might or might not need these two extra libraries
@@ -189,7 +191,36 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
+Hand::Hand()
+{
+	cards = std::vector<Card>(0);
+	value = 0.0;
+}
 
+void Hand::add_card()
+{
+	Card new_card = Card();
+	cards.push_back(new_card);
+	if (new_card.get_rank() >= 10)
+	{
+		value += 0.5;
+		return;
+	}
+	value += new_card.get_rank();
+}
+
+int Hand::get_value()
+{
+	return value;
+}
+
+void Hand::print()
+{
+	for (size_t i = 0; i < cards.size(); ++i)
+	{
+		std::cout << setw(5) << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << " (" << cards[i].get_english_rank() << "de" << cards[i].get_english_suit() << ")\n";
+	}
+}
 
 
 /* *************************************************
@@ -198,6 +229,10 @@ Player class
 // Implemente the member functions of the Player class here.
 Player::Player(int m){
 	money = m;
+}
+
+int Player::get_cash(){
+	return money;
 }
 
 void Player::win(int x){

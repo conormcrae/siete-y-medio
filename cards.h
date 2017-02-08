@@ -58,9 +58,13 @@ public:
 	Hand();
 
 	// You decide what functions you'll need...
+	void add_card();
+	int get_value();
+	void print();
 
 private:
-	// You decide what fields you'll need...
+	std::vector<Card> cards;
+	double value;
 };
 
 
@@ -70,6 +74,7 @@ public:
 	// Assigns initial amount of money
 	Player(int m);
 
+	int get_cash();
 	void win(int x);
 	void lose(int x);
 	// You decide what functions you'll need...
