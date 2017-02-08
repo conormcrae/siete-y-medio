@@ -70,6 +70,8 @@ public:
 	// Assigns initial amount of money
 	Player(int m);
 
+	void win(int x);
+	void lose(int x);
 	// You decide what functions you'll need...
 
 private:

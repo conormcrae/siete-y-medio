@@ -199,3 +199,11 @@ Player class
 Player::Player(int m){
 	money = m;
 }
+
+void Player::win(int x){
+	money += x;
+}
+
+void Player::lose(int x){
+	money -= x;
+}
