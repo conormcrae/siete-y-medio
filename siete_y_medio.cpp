@@ -2,10 +2,13 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
+#include <cstdlib>
+#include <time.h>
 
 int main()
 {
+	srand(time(NULL));
+
 	Player player(100);
 	Player dealer(900);
 
@@ -16,8 +19,10 @@ int main()
 
 	while (player.get_cash() > 0 && dealer.get_cash() > 0)
 	{
-
 		
+		hand_player.clear();
+		hand_dealer.clear();
+
 		std::cout << "You have $" << player.get_cash() << ". Enter bet: ";
 		int bet; std::cin >> bet;
 		while (bet < 1 || bet > player.get_cash()) //checks that the bet is valid
@@ -26,9 +31,10 @@ int main()
 			std::cin >> bet;
 		}
 
+		hand_player.add_card();
 		std::cout << "Your cards: \n";
 		hand_player.print();
-		std::cout << "Your total is " << hand_player.get_value() << ". Do you want another card? (y/n)";
+		std::cout << "Your total is " << hand_player.get_value() << ". Do you want another card? (y/n) ";
 		std::cin >> playon;
 		while (playon == "y")
 		{
@@ -42,7 +48,7 @@ int main()
 				std::cout << "You busted.";
 			else
 			{
-				std::cout << "Do you want another card? (y/n)";
+				std::cout << "Do you want another card? (y/n) ";
 				std::cin >> playon;
 			}
 		}
@@ -69,13 +75,13 @@ int main()
 				std::cout << "The dealer's total is " << hand_dealer.get_value() << ".\n";
 			}
 
-			if (hand_dealer.get_value > 7.5) // dealer busts
+			if (hand_dealer.get_value() > 7.5) // dealer busts
 			{
 				player.win(bet);
 				dealer.lose(bet);
 				std::cout << "You win " << bet << "!";
 			}
-			else if (hand_dealer.get_value > hand_player.get_value) // no one busts but dealer is better
+			else if (hand_dealer.get_value() > hand_player.get_value()) // no one busts but dealer is better
 			{
 				player.lose(bet);
 				dealer.win(bet);

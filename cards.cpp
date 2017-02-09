@@ -206,7 +206,7 @@ void Hand::add_card()
 		value += 0.5;
 		return;
 	}
-	value += new_card.get_rank();
+	value += (double)(new_card.get_rank());
 }
 
 int Hand::get_value()
@@ -218,16 +218,21 @@ void Hand::print()
 {
 	for (size_t i = 0; i < cards.size(); ++i)
 	{
-		std::cout << setw(5) << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << " (" << cards[i].get_english_rank() << "de" << cards[i].get_english_suit() << ")\n";
+		std::cout << setw(5) << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << " (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")\n";
 	}
 }
 
 void Hand::print_new_card()
 {
 	size_t j = cards.size() - 1;
-	std::cout << setw(5) << cards[j].get_spanish_rank() << " de " << cards[j].get_spanish_suit() << " (" << cards[j].get_english_rank() << "de" << cards[j].get_english_suit() << ")\n";
+	std::cout << setw(5) << cards[j].get_spanish_rank() << " de " << cards[j].get_spanish_suit() << " (" << cards[j].get_english_rank() << " of " << cards[j].get_english_suit() << ")\n";
 }
 
+void Hand::clear()
+{
+	cards.clear();
+	value = 0.0;
+}
 
 /* *************************************************
 Player class

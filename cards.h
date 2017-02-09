@@ -62,6 +62,7 @@ public:
 	int get_value();
 	void print();
 	void print_new_card();
+	void clear();
 
 private:
 	std::vector<Card> cards;
