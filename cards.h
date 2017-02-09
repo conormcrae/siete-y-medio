@@ -61,6 +61,7 @@ public:
 	void add_card();
 	int get_value();
 	void print();
+	void print_new_card();
 
 private:
 	std::vector<Card> cards;

@@ -222,6 +222,12 @@ void Hand::print()
 	}
 }
 
+void Hand::print_new_card()
+{
+	size_t j = cards.size() - 1;
+	std::cout << setw(5) << cards[j].get_spanish_rank() << " de " << cards[j].get_spanish_suit() << " (" << cards[j].get_english_rank() << "de" << cards[j].get_english_suit() << ")\n";
+}
+
 
 /* *************************************************
 Player class
