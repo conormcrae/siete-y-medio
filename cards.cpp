@@ -218,14 +218,16 @@ void Hand::print()
 {
 	for (size_t i = 0; i < cards.size(); ++i)
 	{
-		std::cout << setw(5) << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << " (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")\n";
+		std::cout << "	" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << " (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")\n";
 	}
+	std::cout << "\n";
 }
 
 void Hand::print_new_card()
 {
 	size_t j = cards.size() - 1;
-	std::cout << setw(5) << cards[j].get_spanish_rank() << " de " << cards[j].get_spanish_suit() << " (" << cards[j].get_english_rank() << " of " << cards[j].get_english_suit() << ")\n";
+	std::cout << "	" << cards[j].get_spanish_rank() << " de " << cards[j].get_spanish_suit() << " (" << cards[j].get_english_rank() << " of " << cards[j].get_english_suit() << ")\n";
+	std::cout << "\n";
 }
 
 void Hand::clear()
