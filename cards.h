@@ -59,7 +59,7 @@ public:
 
 	// You decide what functions you'll need...
 	void add_card();
-	int get_value();
+	double get_value();
 	void print();
 	void print_new_card();
 	void clear();

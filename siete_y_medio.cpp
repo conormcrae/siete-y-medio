@@ -45,7 +45,10 @@ int main()
 			hand_player.print();
 			std::cout << "Your total is " << hand_player.get_value() << ".\n";
 			if (hand_player.get_value() > 7.5)
-				std::cout << "You busted.";
+			{
+				std::cout << "You busted. \n";
+				break;
+			}
 			else
 			{
 				std::cout << "Do you want another card? (y/n) ";
@@ -98,9 +101,9 @@ int main()
 	}
 
 	if (player.get_cash() > 0)
-		std::cout << "Congratulations, you beat the casino!\n\nBye!";
+		std::cout << "\n\nCongratulations, you beat the casino!\n\nBye!";
 	else
-		std::cout << "You have no more money... Hit the road jack.";
+		std::cout << "\n\nYou have no more money... Hit the road jack.\n\n";
 
 	return 0;
 }

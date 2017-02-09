@@ -209,7 +209,7 @@ void Hand::add_card()
 	value += (double)(new_card.get_rank());
 }
 
-int Hand::get_value()
+double Hand::get_value()
 {
 	return value;
 }
