@@ -197,6 +197,7 @@ Hand::Hand()
 	value = 0.0;
 }
 
+// function adds a card to cards and updates the value
 void Hand::add_card()
 {
 	Card new_card = Card();
@@ -209,11 +210,13 @@ void Hand::add_card()
 	value += (double)(new_card.get_rank());
 }
 
+//returns the value
 double Hand::get_value()
 {
 	return value;
 }
 
+// prints out the cards vector (a hand)
 void Hand::print()
 {
 	for (size_t i = 0; i < cards.size(); ++i)
@@ -223,6 +226,7 @@ void Hand::print()
 	std::cout << "\n";
 }
 
+//prints out only the last card in cards (the most recent card)
 void Hand::print_new_card()
 {
 	size_t j = cards.size() - 1;
@@ -230,6 +234,8 @@ void Hand::print_new_card()
 	std::cout << "\n";
 }
 
+//clears the cards vector and resets the value to zero
+//this occurs when a round of the game ends.
 void Hand::clear()
 {
 	cards.clear();
@@ -244,14 +250,17 @@ Player::Player(int m){
 	money = m;
 }
 
+// returns the amount of money a player has
 int Player::get_cash(){
 	return money;
 }
 
+// adds an int (the bet) to the player's money
 void Player::win(int x){
 	money += x;
 }
 
+// subtracts an int (the bet) from the player's money
 void Player::lose(int x){
 	money -= x;
 }
